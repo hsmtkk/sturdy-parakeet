@@ -35,4 +35,20 @@ time.sleep(3)
 option_trade_link = driver.find_element(By.XPATH, "//li[@data-page='option-trade']")
 option_trade_link.click()
 
+time.sleep(3)
+grid_body_price = driver.find_element(By.ID, "grid-body-price")
+with open("price.html", "w") as f:
+    f.write(grid_body_price.get_attribute("innerHTML"))
+
+time.sleep(3)
+risk_indicator_label = driver.find_element(
+    By.XPATH, "//label[@for='option-trading-risk']"
+)
+risk_indicator_label.click()
+
+time.sleep(3)
+grid_body_risk = driver.find_element(By.ID, "grid-body-risk")
+with open("risk.html", "w") as f:
+    f.write(grid_body_risk.get_attribute("innerHTML"))
+
 time.sleep(30)
